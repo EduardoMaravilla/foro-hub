@@ -8,7 +8,7 @@ import org.maravill.foro_hub.foro.exception.ForoInvalidDataException;
 import org.maravill.foro_hub.foro.models.Category;
 import org.maravill.foro_hub.foro.models.Course;
 import org.maravill.foro_hub.foro.repository.ICourseRepository;
-import org.maravill.foro_hub.foro.service.ForoMapperService;
+import org.maravill.foro_hub.foro.utils.ForoMapperService;
 import org.maravill.foro_hub.foro.service.ICourseService;
 import org.maravill.foro_hub.global.dto.ResponsePage;
 import org.springframework.data.domain.Page;

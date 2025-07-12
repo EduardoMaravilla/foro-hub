@@ -9,7 +9,7 @@ import org.maravill.foro_hub.foro.models.Course;
 import org.maravill.foro_hub.foro.models.StatusTopic;
 import org.maravill.foro_hub.foro.models.Topic;
 import org.maravill.foro_hub.foro.repository.ITopicRepository;
-import org.maravill.foro_hub.foro.service.ForoMapperService;
+import org.maravill.foro_hub.foro.utils.ForoMapperService;
 import org.maravill.foro_hub.foro.service.ICourseService;
 import org.maravill.foro_hub.foro.service.ITopicService;
 import org.maravill.foro_hub.global.dto.ResponsePage;
@@ -56,6 +56,8 @@ public class TopicServiceImpl implements ITopicService {
             topics = topicRepository.findByCourse_NameIgnoreCaseAndCreatedAtYear(courseName, year, pageable);
         } else if (courseName != null) {
             topics = topicRepository.findByCourse_NameIgnoreCase(courseName, pageable);
+        } else if (year != null) {
+            topics = topicRepository.findByCreatedAtYear(year, pageable);
         } else {
             topics = topicRepository.findAll(pageable);
         }

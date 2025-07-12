@@ -40,4 +40,5 @@ public class Role {
         this.idRole = idRole;
         this.name = name;
     }
+
 }

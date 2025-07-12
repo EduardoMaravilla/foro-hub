@@ -45,3 +45,9 @@ SELECT 'AUTHENTICATE', '/authenticate'
 WHERE NOT EXISTS (
     SELECT 1 FROM modules WHERE module_name = 'AUTHENTICATE'
 );
+
+INSERT INTO modules(module_name, base_path)
+SELECT 'DOCUMENTATION', '/documentation'
+WHERE NOT EXISTS (
+    SELECT 1 FROM modules WHERE module_name = 'DOCUMENTATION'
+);

@@ -6,7 +6,7 @@ import org.maravill.foro_hub.foro.dto.ResponseAnswer;
 import org.maravill.foro_hub.foro.models.Answer;
 import org.maravill.foro_hub.foro.models.Topic;
 import org.maravill.foro_hub.foro.repository.IAnswerRepository;
-import org.maravill.foro_hub.foro.service.ForoMapperService;
+import org.maravill.foro_hub.foro.utils.ForoMapperService;
 import org.maravill.foro_hub.foro.service.IAnswerService;
 import org.maravill.foro_hub.foro.service.ITopicService;
 import org.maravill.foro_hub.global.dto.ResponsePage;

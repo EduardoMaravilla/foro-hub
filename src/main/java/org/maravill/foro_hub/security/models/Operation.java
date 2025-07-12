@@ -52,4 +52,5 @@ public class Operation {
         this.permitAll = permitAll;
         this.module = module;
     }
+
 }

@@ -18,6 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @ActiveProfiles("test")
+@DisplayName("Test Operation Repository")
 class IOperationRepositoryTest {
 
     @Autowired

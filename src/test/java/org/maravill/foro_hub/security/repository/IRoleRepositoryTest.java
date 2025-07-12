@@ -15,13 +15,14 @@ import static org.junit.jupiter.api.Assertions.*;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @ActiveProfiles("test")
+@DisplayName("Test Role Repository")
 class IRoleRepositoryTest {
 
     @Autowired
     private IRoleRepository roleRepository;
 
     @Test
-    @DisplayName("Find role by existing name USER")
+    @DisplayName("Test Find role by existing name USER")
     void findByName_UserExists() {
         String roleName = "USER";
 
@@ -32,7 +33,7 @@ class IRoleRepositoryTest {
     }
 
     @Test
-    @DisplayName("Find role by existing name ADMIN")
+    @DisplayName("Test Find role by existing name ADMIN")
     void findByName_AdminExists() {
         String roleName = "ADMIN";
 
@@ -43,7 +44,7 @@ class IRoleRepositoryTest {
     }
 
     @Test
-    @DisplayName("Find role by non-existent name returns empty")
+    @DisplayName("Test Find role by non-existent name returns empty")
     void findByName_NotExists() {
         String roleName = "NON_EXISTENT_ROLE";
 

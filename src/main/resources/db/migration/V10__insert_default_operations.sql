@@ -210,6 +210,14 @@ WHERE NOT EXISTS (
     SELECT 1 FROM operations WHERE name = 'LOGIN'
 );
 
+-- Swagger Documentations operations
+
+INSERT INTO operations (name, http_method, path, permit_all, module_id)
+SELECT 'SWAGGER_DOCUMENTATION', 'GET', '/.*', TRUE,
+       (SELECT id_module FROM modules WHERE module_name = 'DOCUMENTATION')
+WHERE NOT EXISTS (
+    SELECT 1 FROM operations WHERE name = 'SWAGGER_DOCUMENTATION'
+);
 
 -- Course Operations
 

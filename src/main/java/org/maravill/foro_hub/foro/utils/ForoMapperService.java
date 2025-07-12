@@ -1,4 +1,4 @@
-package org.maravill.foro_hub.foro.service;
+package org.maravill.foro_hub.foro.utils;
 
 import org.maravill.foro_hub.foro.dto.*;
 import org.maravill.foro_hub.foro.models.Answer;

@@ -15,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @ActiveProfiles("test")
+@DisplayName("Test User Repository")
 class IUserRepositoryTest {
 
     @Autowired
@@ -38,6 +39,7 @@ class IUserRepositoryTest {
     }
 
     @Test
+    @DisplayName("Test verify user by username")
     void existsByUsername() {
         boolean isUsernamePresent = userRepository.existsByUsername("root");
         boolean notUsernamePresent = userRepository.existsByUsername("super-root");

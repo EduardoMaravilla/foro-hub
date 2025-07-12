@@ -1,7 +1,6 @@
 package org.maravill.foro_hub.foro.controller;
 
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
 import org.maravill.foro_hub.foro.dto.RequestAnswer;
 import org.maravill.foro_hub.foro.dto.ResponseAnswer;
