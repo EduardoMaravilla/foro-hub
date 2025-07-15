@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>org.maravill.</groupId>
 	<artifactId>foro-hub</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>foro-hub</name>
 	<description>Backend de foro hub</description>
 	<url/>
@@ -30,6 +30,7 @@
 		<java.version>23</java.version>
 		<nimbus.jwt.version>10.3.1</nimbus.jwt.version>
 		<spring.docs.version>2.8.9</spring.docs.version>
+		<commons.lang3.version>3.18.0</commons.lang3.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -71,6 +72,17 @@
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
 			<version>${spring.docs.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.commons</groupId>
+					<artifactId>commons-lang3</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons.lang3.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
