@@ -2,20 +2,30 @@ package org.maravill.foro_hub.foro.exception;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.maravill.foro_hub.foro.dto.ResponseForoApiError;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.time.LocalDateTime;
 
+@Order(2)
 @RestControllerAdvice(basePackages = "org.maravill.foro_hub.foro")
 public class ForoExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ResponseForoApiError> globalUnknowHandler(HttpServletRequest request , Exception ex){
         ResponseForoApiError errorResponse = generateApiResponseError(request,ex,"Error Foro global");
+        ex.printStackTrace();
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ResponseForoApiError> methodArgumentNotValidHandler(HttpServletRequest request, MethodArgumentNotValidException ex){
+        ResponseForoApiError errorResponse = generateApiResponseError(request,ex,"Foro Bad Request");
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
     }
 
     @ExceptionHandler(ForoDataNotFoundException.class)

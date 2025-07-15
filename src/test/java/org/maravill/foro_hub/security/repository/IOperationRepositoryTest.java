@@ -31,7 +31,7 @@ class IOperationRepositoryTest {
         boolean hasLogin = operations.stream()
                 .anyMatch(op -> "LOGIN".equals(op.getName()));
         assertTrue(hasLogin, "Debe existir una operación con nombre LOGIN");
-        assertEquals(7, operations.size());
+        assertEquals(8, operations.size());
     }
 
     @Test

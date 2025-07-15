@@ -114,7 +114,7 @@ class CourseServiceImplTest {
     @DisplayName("Test Update course")
     void updateCourse() {
         when(courseRepository.findById(1L)).thenReturn(Optional.of(course));
-        when(courseRepository.existsByNameIgnoreCaseAndIdCourseNot("Spring Boot", 1L)).thenReturn(true);
+        when(courseRepository.existsByNameIgnoreCaseAndIdCourseNot("Spring Boot", 1L)).thenReturn(false);
         when(courseRepository.save(any())).thenReturn(course);
         when(foroMapperService.mapToCourseResponse(any())).thenReturn(responseCourse);
 
@@ -126,7 +126,7 @@ class CourseServiceImplTest {
     @DisplayName("Test Update course but name already exists")
     void updateCourseFail() {
         when(courseRepository.findById(1L)).thenReturn(Optional.of(course));
-        when(courseRepository.existsByNameIgnoreCaseAndIdCourseNot("Spring Boot", 1L)).thenReturn(false);
+        when(courseRepository.existsByNameIgnoreCaseAndIdCourseNot("Spring Boot", 1L)).thenReturn(true);
 
         assertThrows(ForoInvalidDataException.class, () -> courseService.updateCourse(1L, requestCourse));
     }

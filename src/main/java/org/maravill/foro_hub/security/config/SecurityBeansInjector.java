@@ -1,6 +1,7 @@
 package org.maravill.foro_hub.security.config;
 
 import lombok.RequiredArgsConstructor;
+import org.maravill.foro_hub.security.exception.SecurityDataNotFoundException;
 import org.maravill.foro_hub.security.repository.IUserRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -39,6 +40,6 @@ public class SecurityBeansInjector {
 
     public UserDetailsService userDetailsService() {
         return username -> userRepository.findByUsername(username)
-                .orElseThrow(() -> new RuntimeException("User not found with username " + username));
+                .orElseThrow(() -> new SecurityDataNotFoundException("Bad credentials"));
     }
 }

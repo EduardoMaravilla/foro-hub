@@ -54,7 +54,7 @@ public class CourseServiceImpl implements ICourseService {
     public ResponseCourse updateCourse(Long idCourse, RequestCourse requestCourse) {
         Course course = courseRepository.findById(idCourse)
                 .orElseThrow(() -> new ForoDataNotFoundException("Course not found"));
-        if(!courseRepository.existsByNameIgnoreCaseAndIdCourseNot(requestCourse.name(),idCourse)){
+        if(courseRepository.existsByNameIgnoreCaseAndIdCourseNot(requestCourse.name(),idCourse)){
             throw new ForoInvalidDataException("Name already exists");
         }
         course.setName(requestCourse.name());
